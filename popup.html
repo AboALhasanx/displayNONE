@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>displayNONE</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <img src="icons/icon32.png" alt="displayNONE" class="brand-icon" />
+        <div>
+          <h1 class="brand-title" data-i18n="appTitle">displayNONE</h1>
+          <p class="brand-desc" data-i18n="appDesc">Hide Element Inspector</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button id="btnLangToggle" class="lang-toggle" title="Switch Language">
+          <svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-code active" id="langEn">EN</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-code" id="langAr">عربي</span>
+        </button>
+        <div id="statusBadge" class="status-pill" data-i18n="statusReady">Ready</div>
+      </div>
+    </header>
+
+    <!-- Hidden counter -->
+    <section class="section">
+      <div class="counter-box">
+        <div class="counter-num" id="hiddenCountNum">0</div>
+        <div class="counter-label" data-i18n="counterLabel">Hidden on this page</div>
+      </div>
+    </section>
+
+    <!-- Hero: Hide mode -->
+    <section class="section">
+      <button id="btnHideMode" class="hero-btn">
+        <svg class="hero-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <div class="hero-text">
+          <strong data-i18n="btnHideTitle">Hide Element</strong>
+          <small data-i18n="btnHideDesc">Click any element to set display:none</small>
+        </div>
+      </button>
+    </section>
+
+    <!-- Hero: Reveal mode -->
+    <section class="section">
+      <button id="btnRevealMode" class="hero-btn reveal">
+        <svg class="hero-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="hero-text">
+          <strong data-i18n="btnRevealTitle">Reveal Hidden</strong>
+          <small data-i18n="btnRevealDesc">Click a hidden element to restore it</small>
+        </div>
+      </button>
+    </section>
+
+    <!-- Tools -->
+    <section class="section">
+      <div class="tools-grid">
+        <button id="btnUndo" class="tool-btn">
+          <svg class="icon-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+          <span data-i18n="btnUndo">Undo Last</span>
+        </button>
+        <button id="btnRestoreAll" class="tool-btn reveal">
+          <svg class="icon-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <span data-i18n="btnRestoreAll">Restore All</span>
+        </button>
+        <button id="btnStop" class="tool-btn danger">
+          <svg class="icon-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <span data-i18n="btnStop">Stop</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Inspector Border Width -->
+    <section class="section options-box">
+      <div class="slider-row">
+        <span class="slider-label" data-i18n="lblOutline">Highlight border</span>
+        <span class="slider-value"><span id="outlineVal">2</span>px</span>
+      </div>
+      <input type="range" id="outlineWidth" class="outline-slider" min="1" max="4" step="1" value="2" />
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span class="shortcut-tip"><kbd>Ctrl+Shift+X</kbd> <span data-i18n="footerTip">toggle hide mode</span> · <kbd>Esc</kbd> <span data-i18n="footerEsc">exit</span></span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

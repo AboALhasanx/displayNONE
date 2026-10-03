@@ -1,0 +1,349 @@
+/* popup.css - displayNONE theme (same design system as RTL Direction) */
+:root {
+  --bg-app: #0f141c;
+  --bg-card: #161d27;
+  --bg-input: #1f2836;
+  --border: #2b3648;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --accent: #f43f5e;
+  --accent-hover: #e11d48;
+  --reveal: #22c55e;
+  --radius: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif;
+}
+
+body {
+  width: 300px;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-size: 13px;
+  user-select: none;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 10px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.brand-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.brand-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2px 6px;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+}
+
+.lang-code.active {
+  color: var(--accent);
+}
+
+.lang-divider {
+  opacity: 0.3;
+}
+
+.status-pill {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.status-pill.hiding {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.status-pill.revealing {
+  border-color: var(--reveal);
+  color: var(--reveal);
+}
+
+/* Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Counter */
+.counter-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+}
+
+.counter-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: ui-monospace, monospace;
+}
+
+.counter-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Hero Button */
+.hero-btn {
+  background: #881337;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  transition: background 0.12s ease;
+}
+
+html[dir="rtl"] .hero-btn {
+  text-align: right;
+}
+
+.hero-btn:hover {
+  background: #9f1239;
+}
+
+.hero-btn.reveal {
+  background: #14532d;
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.hero-btn.reveal:hover {
+  background: #166534;
+}
+
+.hero-icon-svg {
+  flex-shrink: 0;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-text strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero-text small {
+  font-size: 10px;
+  color: #fecdd3;
+}
+
+.hero-btn.reveal .hero-text small {
+  color: #bbf7d0;
+}
+
+/* Tool Buttons */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.tool-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-main);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 6px 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.tool-btn:hover {
+  background: var(--bg-input);
+}
+
+.tool-btn.danger {
+  color: var(--accent);
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.tool-btn.danger:hover {
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.tool-btn.reveal {
+  color: var(--reveal);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.tool-btn.reveal:hover {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+/* Outline width slider */
+.slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.slider-label {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.slider-value {
+  color: var(--accent);
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+}
+
+.outline-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-input);
+  outline: none;
+  cursor: pointer;
+}
+
+.outline-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #0b111a;
+  cursor: pointer;
+}
+
+.outline-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #0b111a;
+  cursor: pointer;
+}
+
+/* Options Box */
+.options-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  gap: 6px;
+}
+
+/* SVG Helpers */
+.icon-svg {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Footer */
+.app-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.shortcut-tip {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+kbd {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 3px;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  color: var(--text-main);
+}

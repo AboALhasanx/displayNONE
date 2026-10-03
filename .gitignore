@@ -1,0 +1,10 @@
+# Local workspace metadata
+.freebuff/
+
+# Node (tests only; the extension itself has zero deps)
+node_modules/
+package-lock.json
+
+# OS noise
+Thumbs.db
+.DS_Store
